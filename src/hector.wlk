@@ -33,7 +33,8 @@ object aspersor {
 	method image() = "aspersor.png"
 	
 	method regar() {
-		const positions = [self.position().up(1), self.position().right(1), self.position().down(1), self.position().left(1)]
+		const arribaIzquierda = new Position(x = self.position().x()-1, y = self.position().y()+1)
+		const positions = [self.position().up(1), self.position().right(1), self.position().down(1), self.position().left(1), arribaIzquierda]
 		const cultivos = positions.map({p => game.getObjectsIn(p)}).flatten()  
 		cultivos.forEach({c => c.regar()})
 	}
